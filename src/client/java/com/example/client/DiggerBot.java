@@ -35,6 +35,9 @@ public class DiggerBot {
 
     public static void stop() {
         state = State.IDLE;
+        Minecraft client = Minecraft.getInstance();
+client.options.keyAttack.setDown(false);
+client.options.keyUp.setDown(false);
     }
 
     // Called every tick by ExampleModClient.
@@ -49,7 +52,8 @@ public class DiggerBot {
             return;
         }
 
-        tickCount++;
+        tickCount++;client.options.keyAttack.setDown(true);
+client.options.keyUp.setDown(true);
 
         // Every 100 ticks (5 seconds), write a line to the game log.
         // This is just proof the loop is running. Real mining goes here later.
